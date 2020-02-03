@@ -9,7 +9,11 @@
 
 3.Disk Usage 
   Overall system    - df -h
+<<<<<<< HEAD
   Particular folder - du -h
+=======
+  Particular folder - du -h (Directory Name)
+>>>>>>> 925dccd505d18e55c18c694a2f9538ca9ac68a41
 
 4.Creating LVM Partition
   Add two hard disks #let them be sdb of 700M and sdc 1200M

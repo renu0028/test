@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 When we create a file or directory in linux,it is created by some default permissions for it's owner,members of it's group and other users. 
 By default the permissions are 775 for directory and 664 for files for root user.This means that when we create a directory the permission for it's owner and members of it's group is 7 i.e.to read,write and execute the directory while other users can only read and execute it but cannot write into it.
 Similarly, when we create a file the permission for it's owner and members of it's group is 6,i.e. they can read and write into the file whereas all other users can only read the file.
@@ -7,4 +8,23 @@ For root user the umask is 022,this means permission for directory would be(777-
 If we wish, we can change the umask from the /etc/bashrc and /etc/profile files for both root user and other users.
 If we want any other user to create files with the superuser's(root) permission,then, firstly we will have to make the entry of that user in the /etc/sudoers file and specify the username,and the commands for which we want to provide the privileges of the root user.We can write "ALL" for providing the privileges for all commands.
 Now, when this user(having entry in /etc/sudoers) creates a file using "sudo" then the permissions are of root to this file (644) while when this user creates a file without using sudo then permissions are of non-root user(664).
+=======
+--> When we create a file or directory in linux,it is created by some default permissions for it's owner,members of it's group and other users.
+ 
+--> By default the permissions are 775 for directory and 664 for files for root user.This means that when we create a directory the permission for it's owner and members of it's group is 7 i.e.to read,write and execute the directory while other users can only read and execute it but cannot write into it.
+
+--> Similarly, when we create a file the permission for it's owner and members of it's group is 6,i.e. they can read and write into the file whereas all other users can only read the file.
+
+--> This is because of a command called as the "umask" that controls how file permissions are set for newly created users.
+
+--> For a normal user the umask is 002, this means that permission would be(777-002=)775 for directory and (666-002=)664 for files.
+
+--> For root user the umask is 022,this means permission for directory would be(777-022=) 755 and for files it would be(666-022=)644.
+
+--> If we wish, we can change the umask from the /etc/bashrc and /etc/profile files for both root user and other users.
+
+--> If we want any other user to create files with the superuser's(root) permission,then, firstly we will have to make the entry of that user in the /etc/sudoers file and specify the username,and the commands for which we want to provide the privileges of the root user.We can write "ALL" for providing the privileges for all commands.
+
+--> Now, when this user(having entry in /etc/sudoers) creates a file using "sudo" then the permissions are of root to this file (644) while when this user creates a file without using sudo then permissions are of non-root user(664).
+>>>>>>> 925dccd505d18e55c18c694a2f9538ca9ac68a41
 
