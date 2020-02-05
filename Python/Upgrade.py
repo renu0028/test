@@ -5,11 +5,6 @@ os.system('uname -a')
 print("---------------------------------------------------------------------------------------")
 print("Checking for updates...")
 os.system('yum check-update')
-#sp.getoutput('yum update>f1')
-#f1=sp.getoutput('cat f1|tail -n +7')
-#f2="No packages marked for update"
-#if(f1==f2):
-#	 print("Already updated!!")
 print("---------------------------------------------------------------------------------------")
 #else:
 n=input("\nDo you want to update specific package  or upgrade your OS?Enter 'p' for package or 'o' for OS\n").strip().lower()
