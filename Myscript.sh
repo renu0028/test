@@ -4,4 +4,4 @@ echo "This is param $PASSED"
 NUM=$(($a + $b))
 echo $NUM
 echo "All good?.."
-echo "Yes... right?"
+echo "Yes.. right?"
