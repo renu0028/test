@@ -1,0 +1,6 @@
+curl -I -X POST http://admin:115826940f9ca562dd50f6c6869fe76192@35.154.15.75:8080/job/Scripts/job/Scripty/build -H "$CRUMB"
+CRUMB=$(wget -q --auth-no-challenge --user admin --password 36b6babf8bc8413aa2a69a2547894c88 --output-document - 'http://35.154.15.75:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)'
+crumb=$(cat crumb.txt)
+echo $crumb
+wget -q --auth-no-challenge --user admin --password 36b6babf8bc8413aa2a69a2547894c88 --output-document - 'http://35.154.15.75:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb
+curl -I -X POST http://admin:115826940f9ca562dd50f6c6869fe76192@35.154.15.75:8080/job/Scripts/job/Scripty/build -H "$crumb"
