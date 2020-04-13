@@ -1,4 +1,4 @@
-import xmltodict , json , requests as req
+import json , requests as req, xmltodict
 
 def blog_name_and_post_range_input():
     blog_name_input = "enter the Tumblr blog name: "
