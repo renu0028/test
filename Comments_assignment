@@ -1,0 +1,50 @@
+import json , requests as req
+
+def input_blog_name():
+    blog_name = "enter the Tumblr blog name: "
+    tumblr_blog_name = input(blog_name)
+    return tumblr_blog_name
+
+def input_post_range():
+  post_range = "enter the range: "
+  return input(post_range)
+    
+def fetch_json_data_from_tumblr_url(tumblr_blog_name):
+    range=input_post_range().split('-')
+    #fetching the upper and lower bound for posts
+    num_of_posts = int(range[1])-int(range[0]) + 1   
+    #total number of posts to be fetched
+    tumblr_blog_url = "https://{}.tumblr.com/api/read/json/?type=photo&num={}&start={}".format(tumblr_blog_name,num_of_posts,int(range[0])-1)
+    response_code = req.get(tumblr_blog_url)
+    fetched_string_result = response_code.text[22:-2] 
+    #data fetched as string  
+    json_parsed_data = json.loads(fetched_string_result)  
+    #data is converted into json object
+    return json_parsed_data
+     
+def print_basic_blog_details(json_parsed_data):
+  print("name:",json_parsed_data["tumblelog"]["name"])
+  print("Total:",json_parsed_data["posts-total"])
+  print("title:",json_parsed_data["tumblelog"]["title"])
+  print("description:",json_parsed_data["tumblelog"]["description"])
+
+def photo_post_urls(json_parsed_data):
+  post_counter=1
+  for post in json_parsed_data["posts"]:
+      print(str(post_counter)+". "+post["photo-url-1280"])
+      if(post["photos"]==0):
+        #check if multiple posts exist or not in a post
+        pass
+      else:
+        for multiple_post in post["photos"]:
+          print("   "+multiple_post["photo-url-1280"])
+      post_counter+=1
+      
+
+def main():
+   tumblr_blog_name =input_blog_name()   
+   json_parsed_data = fetch_json_data_from_tumblr_url(tumblr_blog_name)
+   print_basic_blog_details(json_parsed_data)
+   photo_post_urls(json_parsed_data)
+
+main()

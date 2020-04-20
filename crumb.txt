@@ -1,0 +1,1 @@
+wget -q --auth-no-challenge --user admin --password 36b6babf8bc8413aa2a69a2547894c88 --output-document - 'http://35.154.15.75:8080/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb

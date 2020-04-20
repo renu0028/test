@@ -1,0 +1,28 @@
+1.Current User      - whoami
+  Working directory - pwd
+  Shell environment - echo $SHELL or echo $0
+  Process           - ps
+
+2.Boot logs         - cat /var/log/boot.log
+  System logs       - ls /var/log
+  Sudo User log     - cat /var/log/secure
+
+3.Disk Usage 
+  Overall system    - df -h
+  Particular folder - du -h
+
+4.Creating LVM Partition
+  Add two hard disks #let them be sdb of 700M and sdc 1200M
+  pvcreate /dev/sdb /dev/sdc  #creating two pvs
+  pvdisplay
+  vgcreate myvg /dev/sdb /dev/sdc #creating a vg name "myvg" which includes 2 pvs
+  vgdisplay
+  lvcreate -L 500M -n mylv myvg #creating lv of 500M from vg
+  lsdisplay
+  lsblk
+
+
+5.Routing Table
+  route -n
+  
+                      
